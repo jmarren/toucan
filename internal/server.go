@@ -14,7 +14,7 @@ func Start() {
 
 	fs := http.FileServer(http.Dir("./public"))
 
-	mux.Handle("GET /public", fs)
+	mux.Handle("GET /public/", http.StripPrefix("/public", fs))
 
 	mux.Handle("GET /", http.HandlerFunc(controllers.RootHandler))
 

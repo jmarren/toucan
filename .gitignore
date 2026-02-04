@@ -33,6 +33,8 @@ tmp
 
 public/index.js
 
+*_templ.go
+
 # Editor/IDE
 # .idea/
 # .vscode/

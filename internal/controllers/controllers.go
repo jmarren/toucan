@@ -12,5 +12,3 @@ func RootHandler(w http.ResponseWriter, r *http.Request) {
 
 	views.Page(users).Render(r.Context(), w)
 }
-
-// imports from views and models
