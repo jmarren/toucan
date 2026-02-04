@@ -6,13 +6,8 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/jmarren/toucan/internal/views"
+	"github.com/jmarren/toucan/internal/controllers"
 )
-
-func rootHandler(w http.ResponseWriter, r *http.Request) {
-	views.Page().Render(r.Context(), w)
-	// w.Write([]byte("hi!"))
-}
 
 func Start() {
 	mux := http.NewServeMux()
@@ -21,7 +16,7 @@ func Start() {
 
 	mux.Handle("GET /public", fs)
 
-	mux.Handle("GET /", http.HandlerFunc(rootHandler))
+	mux.Handle("GET /", http.HandlerFunc(controllers.RootHandler))
 
 	// create server
 	s := &http.Server{

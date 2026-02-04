@@ -1,7 +1,9 @@
 package views
 
+import "github.com/jmarren/toucan/internal/models"
 
-templ Page() {
+
+templ Page(users []models.User) {
 	<!DOCTYPE html>
 	<html>
 		<head> 
@@ -12,6 +14,10 @@ templ Page() {
 
 		<body>
 			<div>app</div>
+			<div>users: 
+			for _, user := range users {
+				{ user.Username }
+			}</div>
 
 		</body>
 
