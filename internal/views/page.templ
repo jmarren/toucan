@@ -13,6 +13,7 @@ templ Page(users []models.User) {
 
 		<body>
 			<div>app</div>
+			<button hx-get="/components/side-panel"></button>
 			<div>users: 
 			for _, user := range users {
 				{ user.Username }

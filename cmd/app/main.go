@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/jmarren/toucan/internal"
 	"github.com/jmarren/toucan/internal/models"
@@ -13,7 +12,5 @@ func main() {
 
 	godotenv.Load(".env")
 	models.Init(context.Background())
-	fmt.Println("hi from main")
-
 	internal.Start()
 }
