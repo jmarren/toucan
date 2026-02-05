@@ -15,13 +15,15 @@ func Start() {
 	fs := http.FileServer(http.Dir("./public"))
 
 	mux.Handle("GET /public/", http.StripPrefix("/public", fs))
-	mux.Handle("GET /components/{component}", controllers.Components)
-	mux.Handle("GET /", http.HandlerFunc(controllers.RootHandler))
+
+	router := &Router{Mux: mux}
+
+	router.Handle("GET /", controllers.RootHandler)
 
 	// create server
 	s := &http.Server{
 		Addr:    ":6060",
-		Handler: mux,
+		Handler: router.Mux,
 	}
 
 	log.Printf("listening on %s\n", s.Addr)
