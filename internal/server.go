@@ -17,8 +17,8 @@ func Start() {
 	mux.Handle("GET /public/", http.StripPrefix("/public", fs))
 
 	router := &Router{Mux: mux}
-
-	router.Handle("GET /", controllers.RootHandler)
+	// https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Chess_kdt45.svg/60px-Chess_kdt45.svg.png
+	router.Page("GET /", controllers.Home)
 
 	// create server
 	s := &http.Server{

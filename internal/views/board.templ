@@ -1,0 +1,18 @@
+package views
+
+
+templ Board(pieces []string) {
+	<div id="board">
+		for _, piece := range pieces {
+			@Piece(piece)
+		}
+	</div>
+}
+
+/*
+			<div id="board">
+				for i := range 64 {
+					<div class="board-square" id={"board-square-" + strconv.Itoa(i) }></div>
+				}
+			</div>
+			*/

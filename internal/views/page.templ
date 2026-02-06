@@ -1,9 +1,8 @@
 package views
 
-import "github.com/jmarren/toucan/internal/models"
 
 
-templ Page(users []models.User) {
+templ Page(content templ.Component) {
 	<!DOCTYPE html>
 	<html>
 		<head> 
@@ -12,14 +11,10 @@ templ Page(users []models.User) {
 		</head>
 
 		<body>
+			@content
 			<div id="side-panel"></div>
 			<div>app</div>
 			<button hx-get="/components/side-panel"></button>
-			<div>users: 
-			for _, user := range users {
-				{ user.Username }
-			}</div>
-
 		</body>
 
 	</html>
